@@ -1,34 +1,67 @@
-const checked = document.querySelector('[type="checkbox"]');
-const range = document.querySelector('[type="range"]');
-const typeOfSubsciption = document.querySelector(".type-of-subscription");
-const price = document.querySelector(".price");
-const views = document.querySelector(".views");
-const progress = document.querySelector(".progress")
+const next = document.querySelector(".next");
+const previous = document.querySelector(".previous");
+const sections = Array.from(document.querySelectorAll("section"));
 
-checked.addEventListener("click", () => {
-    if(checked.classList.contains("checked")) {
-        checked.classList.remove("checked");
-        typeOfSubsciption.innerText = "/month"
-    }else {
-        checked.classList.add("checked");
-        typeOfSubsciption.innerText = "/year";
+let current = 0;
+
+function noDrop() {
+    for(let i = 0; i < sections.length; i++) {
+        if(sections[i].classList.contains("active")) {
+            if(parseInt(sections[i].dataset.index) === 0) {
+                previous.style.cursor = "no-drop";
+                previous.style.opacity = ".5";
+                previous.style.pointerEvents = "none";
+                next.style.pointerEvents = "all";
+                next.style.cursor = "pointer";
+                next.style.opacity = "1";
+            }else if(parseInt(sections[i].dataset.index) === sections.length - 1) {
+                next.style.cursor = "no-drop";
+                next.style.opacity = ".5";
+                next.style.pointerEvents = "none";
+                previous.style.pointerEvents = "all";
+                previous.style.cursor = "pointer";
+                previous.style.opacity = "1";
+            }
+        }
     }
-    
-})
+}
 
-range.addEventListener("mousemove", () => {
-    progress.style.width = `${range.value }%`;
-    if(checked.classList.contains("checked")) {
-        let yearlyPrice = ((range.value * 32 / 100 * 12) - (range.value * 32 / 100 * 12 * (25 / 100))).toFixed(2);  
-        let pageViews = range.value * 200 / 100 * 12
-        price.innerText =`$${yearlyPrice}`;
-        views.innerText = `${pageViews}K`;
-    }else {
-        let monthlyPrice = range.value * 32 / 100;  
-        let pageViews = range.value * 200 / 100
-        price.innerText =`$${monthlyPrice}`;
-        views.innerText = `${pageViews}K`;
+noDrop()
+
+
+function theChecker() {
+    for(let i = 0; i < sections.length; i++) {
+        if(sections[i].classList.contains("active")) {
+            if(i === 0) {
+                current = 0;
+            }else if(i === sections.length - 1) {
+                current = sections.length - 1
+            } else {
+                current = parseInt(sections[i].dataset.index);
+            }
+        }
     }
-})
+}
 
 
+next.addEventListener("click", () => {
+    sections.forEach(section => {
+        if(section.classList.contains("active")) {
+            section.classList.remove("active");
+        }
+    });
+    sections[current + 1].classList.add("active");
+    noDrop() 
+    theChecker() 
+});
+
+previous.addEventListener("click", () => {
+    sections.forEach(section => {
+        if(section.classList.contains("active")) {
+            section.classList.remove("active");
+        }
+    });
+    sections[current - 1].classList.add("active");
+    noDrop()
+    theChecker() 
+});

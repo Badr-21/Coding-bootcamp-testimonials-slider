@@ -4,384 +4,224 @@
     padding: 0;
     /*## Colors
     ### Primary*/
-    --Soft-Cyan /*(Full Slider Bar)*/: hsl(174, 77%, 80%);
-    --Strong-Cyan /*(Slider Backround)*/: hsl(174, 86%, 45%);
-    --Light-Grayish-Red /*(Discount Background)*/: hsl(14, 92%, 95%);
-    --Light-Red /*(Discount Text)*/: hsl(15, 100%, 70%);
-    --Pale-Blue /*(CTA Text)*/: hsl(226, 100%, 87%);
-    /*### Neutral*/
-    --White /*(Pricing Component Background)*/: hsl(0, 0%, 100%);
-    --Very-Pale-Blue /*(Main Background)*/: hsl(230, 100%, 99%);
-    --Light-Grayish-Blue /*(Empty Slider Bar)*/: hsl(224, 65%, 95%);
-    --Light-Grayish-Blue /*(Toggle Background)*/: hsl(223, 50%, 87%);
-    --Grayish-Blue /*(Text)*/: hsl(225, 20%, 60%);
-    --Dark-Desaturated-Blue /*(Text & CTA Background)*/: hsl(227, 35%, 25%);
+    --Dark-Blue: hsl(240, 38%, 20%);
+    --Grayish-Blue: hsl(240, 18%, 77%);
 }
 
 body {
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Inter', sans-serif;
     width: 100vw;
     height: 100vh;
+    background-image: url(images/pattern-bg.svg), url(images/pattern-curve.svg);
+    background-repeat: no-repeat;
+    background-size: 45%;
+    background-position: 95% 40%, 0 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    background-image: url(images/bg-pattern.svg); 
-    background-repeat:  no-repeat;
-    background-size: 100% 55%;
-    background-color: var(--Very-Pale-Blue);
-}
-
-.header {
-    height: 9rem;
-    background-image: url(images/pattern-circles.svg); 
-    background-repeat:  no-repeat;
-    background-size: contain;
-    background-position: 50%;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-}
-
-.header  h1 {
-    color: var(--Dark-Desaturated-Blue);
-    margin-bottom: .8rem;
-}
-
-.header p {
-    font-size: 1.125rem;
-    text-align: center;
-    color: var(--Grayish-Blue);
+    align-items: center;
 }
 
 .container {
-    width: 35rem;
-    background-color: var(--White);
-    border-radius: .5rem;
-    box-shadow: 0 .5rem 1rem var(--Light-Grayish-Blue);
+    width: 85vw;
+    height: 75vh;
+    position: relative;
 }
 
-.container .subscription {
+.container section {
     width: 100%;
-    padding: 3rem 2.5rem;
-    border-bottom: .1rem solid var(--Light-Grayish-Blue)
-}
-
-.container .subscription .page-views-price {
-    font-weight: 600;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 3rem;
-}
-
-.container .subscription .page-views-price p:first-child {
-    color: var(--Grayish-Blue);
-    text-transform: uppercase;
-}
-
-.container .subscription .page-views-price p:last-child {
-    display: flex;
-    align-items: center;
-    color: var(--Grayish-Blue);
-}
-
-.container .subscription .page-views-price p:last-child span:first-child {
-    font-size: 1.875rem;
-    color: var(--Dark-Desaturated-Blue);
-    margin-right: .5rem;
-}
-
-.container .subscription .input-range {
-    display: flex;
-    align-items: center;
-    margin-bottom: 3rem;
-    position: relative;
-}
-
-.container .subscription .input-range .progress {
+    height: 100%;
     position: absolute;
-    width: calc(50% - 2rem);
-    height: .5rem;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    background-color: var(--Soft-Cyan);
-    border-radius: .5rem 0 0 .5rem ;
-}
-
-.container .subscription .input-range input {
-    width: 100%;
-    height: 0.5rem;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: var(--Light-Grayish-Blue);
-    border-radius: .5rem;
-}
-
-.container .subscription .input-range input::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    height: 2rem;
-    width: 2rem;
-    border-radius: 50%;
-    background-color: var(--Strong-Cyan);
-    background-image: url(images/icon-slider.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    box-shadow: 0 .5rem 2rem 0 var(--Strong-Cyan);
-    position: relative;
-    z-index: 99;
-}
-
-.container .subscription .input-range input::-moz-range-thumb {
-    height: 2rem;
-    width: 2rem;
-    border-radius: 50%;
-    background-color: var(--Strong-Cyan);
-    background-image: url(images/icon-slider.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    box-shadow: 0rem .5rem 2rem 0 var(--Strong-Cyan);
-    position: absolute;
-    z-index: 99;
-} 
-
-.container .subscription .billing {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.container .subscription .billing > * {
-    margin-right: 1rem;
-}
-
-.container .subscription .billing p {
-    color: var(--Grayish-Blue);
-}
-
-.container .subscription .billing p:last-child {
-    position: relative;
-    margin-right: 7.5rem;
-}
-
-.container .subscription .billing p:last-child::before {
-    content: "25% discount";
-    position: absolute;
-    width: 5.5rem;
-    padding: .25rem .5rem;
-    text-align: center;
-    font-size: 0.8125rem;
-    color: var(--Light-Red);
-    background-color: var(--Light-Grayish-Red);
-    border-radius: 1rem;
-    left: 110%;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-.container .subscription .billing .switch {
-    position: relative;
-    width: 3rem;
-    height: 1.5rem;
-}
-
-.container .subscription .billing .switch input {
     opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.container .subscription .billing .switch input:checked + .slider {
-    background-color: var(--Soft-Cyan);
-}
-
-.container .subscription .billing .switch .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--Light-Grayish-Blue);
-    border-radius: 1rem;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.container .subscription .billing .switch .slider::before {
-    content: "";
-    position: absolute;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    background-color: var(--White);
-    top: 0.25rem;
-    left: 0.25rem;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.container .subscription .billing .switch input:checked + .slider::before {
-    -webkit-transform: translateX(1.5rem);
-    -ms-transform: translateX(1.5rem);
-    transform: translateX(1.5rem);
-}
-
-.container .start-trial {
-    padding: 2rem 2.5rem;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    transition: opacity .5s ease;
 }
 
-.container .start-trial .options > div {
-    display: flex;
+.container section.active {
+    opacity: 1;
 }
 
-.container .start-trial .options > div:not(:last-child) {
-    margin-bottom: 1rem;
+
+.container section img {
+    width: 45%;
+    border-radius: .3rem;
 }
 
-.container .start-trial .options > div p{
+.container section .text {
+    padding: 8rem 0 0 3rem;
+    background-image: url(images/pattern-quotes.svg);
+    background-repeat: no-repeat;
+    background-position: 25% 20%;
+}
+
+.container section .text p:first-child {
+    width: 110%;
+    margin-bottom: 2rem;
+    font-size: 2.1875rem;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+}
+
+.container section .text p:last-child {
+    color: var(--Dark-Blue);
+    font-weight: 700;
+}
+
+.container section .text p:last-child span{
     color: var(--Grayish-Blue);
+    font-weight: 500;
 }
 
-.container .start-trial .options > div > img {
-    align-self: center;
-    margin-right: .8rem;
-}
-
-.container .start-trial button {
-    width: 11rem;
-    padding: .8rem 0;
-    color: var(--Pale-Blue);
-    background-color: var(--Dark-Desaturated-Blue);
-    border: none;
+.container .change {
+    width: 6rem;
+    height: 3rem;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
     border-radius: 2rem;
+    box-shadow: 0 1rem 1rem rgba(186, 186, 207, .5);
+    position: absolute;
+    right: 30%;
+    bottom: -5%;
+    user-select: none;
+}
+
+.container .change img{
+    align-self: center;
+    transition: .5s;
 }
 
 @media(hover: hover) {
-    .container .subscription .input-range input:hover {
+    .container .change img:hover {
         cursor: pointer;
-    } 
-
-    .container .start-trial button:hover {
-        cursor: pointer;
-        color: var(--White);
-    }
-
-    .container .subscription .billing .switch .slider:hover {
-        cursor: pointer;
-        background-color: var(--Soft-Cyan);
     }
 }
 
+@media(max-width: 975px) {
 
-@media(max-width: 575px) {
-
-    .header  h1 {
-        font-size: 1.2rem;
-        text-align: center;
+    .container section .text {
+        padding: 6rem 0 0 2rem;
+        background-position: 25% 15%;
     }
-    
-    .header p {
-        font-size: 1rem;
+}
+
+@media(max-width: 875px) {
+
+    .container section .text {
+        padding: 4rem 0 0 1rem;
+        background-position: 25% 10%;
+    }
+
+    .container section .text p:first-child {
+        font-size: 2rem;
+    }
+}
+
+@media(max-width: 775px) {
+
+    .container section .text {
+        padding: 3rem 0 0 0rem;
+        background-position: 25% 5%;
+    }
+
+}
+
+@media(max-width: 675px) {
+
+    body {
+        height: 100vh;
+        background-size: 50%;
+        background-position: 50% 10%, 0 100%;
     }
 
     .container {
-        width: 25rem;
+        width: 100%;
+        height: auto;
     }
 
-    .container .subscription .billing > p {
-        font-size: .8rem;
+    .container section {
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-around;
+        gap: 3rem;
     }
 
-    .container .subscription .billing p:last-child {
-        position: relative;
-        margin-right: 2.5rem;
+    .container section img {
+        width: 40%;
     }
 
-    .container .subscription .billing p:last-child::before {
-        content: "-25%";
-        width: 2.5rem;
+    .container section .text {
+        padding: 1rem 2rem 0 2rem;
+        background-size: 10%;
+        background-position: 50% 0;
+    }
+
+    .container section .text p:first-child {
+        width: 100%;
+        margin-bottom: 1rem;
+        font-size: 1.7rem;
+    }
+
+    .container section .text p:last-child {
+        width: 100%;
+        text-align: center;
+    }
+
+    .container section .text p:last-child span{
+        display: block;
+    }
+
+    .container .change {
+        right: 40%;
+        bottom: -5%;
+    }
+
+}
+
+@media(max-width: 575px) {
+    .container section .text p:first-child {
+        font-size: 1.6rem;
     }
 }
 
 @media(max-width: 475px) {
 
-    .container {
-        width: 20rem;
+    body {
+        height: 100vh;
+        background-size: 70%;
+        background-position: 50% 10%, 0 100%;
     }
 
-    .container .subscription .page-views-price {
-        flex-direction: column;
-        margin-bottom: 1rem;
+    .container section img {
+        width: 55%;
     }
 
-    .container .subscription .billing > p {
-        font-size: .6rem;
+    .container section .text p:first-child {
+        font-size: 1.2rem;
     }
 
-    .container .subscription .billing > * {
-        margin-right: .8rem;
+    .container .change {
+        position: absolute;
+        right: 40%;
+        bottom: 0;
     }
-
-    .container .subscription .billing p:last-child::before {
-        content: "-25%";
-        width: 1.5rem;
-        font-size: 0.6rem;
-    }
-
-    .container .start-trial {
-        flex-direction: column;
-    }
-
-    .container .start-trial .options > div:last-child {
-        margin-bottom: 2rem;
-    }
-
 }
 
 @media(max-width: 375px) {
 
     body {
-        width: 100%;
-        height: 100%;
-        padding: 2rem 0;
+        height: 100vh;
+        background-size: 80%;
+        background-position: 50% 10%, 0 100%;
     }
 
-    .header {
-        margin-bottom: 2rem;
+    .container section img {
+        width: 60%;
     }
 
-    .header p {
-        font-size: 0.8rem;
-        width: 55%;
-        margin: 0 auto;
-    }
-
-    .container .subscription {
-        position: relative;
-    }
-
-    .container .subscription .page-views-price p:first-child {
-        margin-bottom: 1rem;
-    }
-
-    .container .subscription .page-views-price p:last-child {
-        position: absolute; 
-        top: 50%;
-    }
-
-    .container .subscription .billing {
-        margin-top: 7rem;
-    }
-
-    .container .start-trial .options > div{
-        margin-bottom: .8rem;
-        font-size: .8rem;
+    .container .change {
+        position: absolute;
+        right: 35%;
+        bottom: 0;
     }
 }
